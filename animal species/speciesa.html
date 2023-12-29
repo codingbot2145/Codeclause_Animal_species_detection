@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Species Detection</title>
+</head>
+<body>
+
+    <h1>Animal Species Detection</h1>
+
+    <input type="file" id="imageInput" accept="image/*">
+    <button onclick="detectSpecies()">Detect Species</button>
+
+    <div id="result"></div>
+
+    <script>
+        function detectSpecies() {
+            const input = document.getElementById('imageInput');
+            const file = input.files[0];
+
+            if (file) {
+                // Simulating species detection (replace with your actual implementation)
+                const detectedSpecies = simulateSpeciesDetection(file.name);
+
+                const resultDiv = document.getElementById('result');
+                resultDiv.innerHTML = `<p>Detected Species: ${detectedSpecies}</p>`;
+            } else {
+                alert('Please select an image file.');
+            }
+        }
+
+        // Simulated species detection function (replace with your actual implementation)
+        function simulateSpeciesDetection(fileName) {
+            // Extracting file extension
+            const fileExtension = fileName.split('.').pop().toLowerCase();
+
+            // Simulated detection based on file extension
+            switch (fileExtension) {
+                case 'jpg':
+                case 'jpeg':
+                    return 'Simulated Dog';
+                case 'png':
+                    return 'Simulated Cat';
+                default:
+                    return 'Unknown Species';
+            }
+        }
+    </script>
+
+</body>
+</html>
